@@ -1,6 +1,6 @@
 {
   "name": "mixanator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mixins through function composition",
   "main": "build.js",
   "scripts": {
@@ -22,8 +22,8 @@
     "sinon": "^1.14.1"
   },
   "bugs": {
-      "url": "https://github.com/Gwash3189/mixanator/issues"
-    },
+    "url": "https://github.com/Gwash3189/mixanator/issues"
+  },
   "homepage": "https://github.com/Gwash3189/mixanator",
   "dependencies": {
     "composanator": "^2.1.5"
