@@ -1,0 +1,28 @@
+{
+  "name": "Mixanator",
+  "version": "1.0.0",
+  "description": "Mixins through function composition",
+  "main": "build.js",
+  "scripts": {
+    "build": "babel index.js > build.js",
+    "test": "npm run build && mocha --compilers js:babel/register index.spec.js"
+  },
+  "keywords": [
+    "mixin",
+    "mixins",
+    "functional",
+    "programming"
+  ],
+  "author": "Adam Beck",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.4.7",
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5",
+    "rewire": "^2.3.3",
+    "sinon": "^1.14.1"
+  },
+  "dependencies": {
+    "composanator": "^2.1.5"
+  }
+}
