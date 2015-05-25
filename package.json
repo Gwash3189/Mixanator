@@ -2,9 +2,9 @@
   "name": "mixanator",
   "version": "1.0.2",
   "description": "Mixins through function composition",
-  "main": "build.js",
+  "main": "build.min.js",
   "scripts": {
-    "build": "babel index.js > build.js",
+    "build": "babel index.js > build.js && uglifyjs build.js --comporess --mangle -o build.min.js",
     "test": "npm run build && mocha --compilers js:babel/register index.spec.js"
   },
   "keywords": [
@@ -19,13 +19,14 @@
     "chai": "^2.3.0",
     "mocha": "^2.2.5",
     "rewire": "^2.3.3",
-    "sinon": "^1.14.1"
+    "sinon": "^1.14.1",
+    "uglifyjs": "^2.4.10"
   },
   "bugs": {
     "url": "https://github.com/Gwash3189/mixanator/issues"
   },
   "homepage": "https://github.com/Gwash3189/mixanator",
   "dependencies": {
-    "composanator": "^2.1.5"
+    "composanator": "^3.0.0"
   }
 }

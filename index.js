@@ -1,26 +1,17 @@
 var composanator = require("composanator");
+var api = {};
 
-
-var namespace;
-try {
-    if(module && module.exports){
-        namespace = module.exports;
-    }
-} catch(e) {
-    namespace = (window.Mixanator = {});
-}
-
-namespace.mix =  function(...args) {
+api.mix =  function(...args) {
     var func = composanator.compose.left.apply(null, args);
     func.__composed = func;
-    func.extend = namespace.extend;
+    func.extend = api.extend;
     return func;
 };
 
-namespace.extend = function(...args) {
+api.extend = function(...args) {
     args = args.map(getComposedFuncs).filter(clear).concat(args);
 
-    return namespace.mix.apply(null, args);
+    return api.mix.apply(null, args);
 
     function clear(x){return x;}
 
@@ -28,3 +19,5 @@ namespace.extend = function(...args) {
       return func.__composed;
     }
 };
+
+module.exports = api;
