@@ -1,6 +1,6 @@
 {
   "name": "mixanator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Mixins through function composition",
   "main": "build.min.js",
   "scripts": {
