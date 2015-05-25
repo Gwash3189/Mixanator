@@ -36,7 +36,7 @@ var SquareString = mixanator.mix(Num, Square);
 
 # Extend 
 
-Used to extend, an already composed function. All originally composed functions will be composed with the newly provided functions. 
+Used to extend an already composed function. All originally composed functions will be composed with the newly provided functions. 
 
 ```JavaScript
 var CudeSquareString = SquareString.extend(function(x){return x * x * x;});
