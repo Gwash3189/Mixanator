@@ -14,7 +14,6 @@ try{
 (function(exports, require){
     "use strict";
     var composanator = require("composanator");
-    console.log(composanator);
 
     exports.mix =  function(...args) {
         var func = composanator.left.apply(null, args);
