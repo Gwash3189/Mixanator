@@ -1,36 +1,50 @@
-"use strict";
+'use strict';
 
-var composanator = require("composanator");
-var api = {};
-
-api.mix = function () {
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
+var ex = typeof exports === 'undefined' ? window['mixanator'] = {} : exports;
+var req;
+try {
+    if (require !== undefined) {
+        req = require;
     }
+} catch (e) {
+    ex.require = function (name) {
+        return window[name];
+    };
+    req = ex.require;
+}
 
-    var func = composanator.compose.left.apply(null, args);
-    func.__composed = func;
-    func.extend = api.extend;
-    return func;
-};
+(function (exports, require) {
+    'use strict';
+    var composanator = require('composanator');
+    console.log(composanator);
 
-api.extend = function () {
-    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-        args[_key2] = arguments[_key2];
-    }
+    exports.mix = function () {
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
 
-    args = args.map(getComposedFuncs).filter(clear).concat(args);
+        var func = composanator.left.apply(null, args);
+        func.__composed = func;
+        func.extend = exports.extend;
+        return func;
+    };
 
-    return api.mix.apply(null, args);
+    exports.extend = function () {
+        for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+            args[_key2] = arguments[_key2];
+        }
 
-    function clear(x) {
-        return x;
-    }
+        args = args.map(getComposedFuncs).filter(clear).concat(args);
 
-    function getComposedFuncs(func) {
-        return func.__composed;
-    }
-};
+        return exports.mix.apply(null, args);
 
-module.exports = api;
+        function clear(x) {
+            return x;
+        }
+
+        function getComposedFuncs(func) {
+            return func.__composed;
+        }
+    };
+})(ex, req);
 
