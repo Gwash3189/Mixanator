@@ -1,6 +1,6 @@
 {
   "name": "mixanator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Mixins through function composition",
   "main": "build.min.js",
   "devDependencies": {
